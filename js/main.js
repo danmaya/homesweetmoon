@@ -58,7 +58,6 @@ function Game()
         lapse = window.setInterval(frameLoop, 1000/60);
     }
 
-
     // Mètodes privats
     function frameLoop()
     {
@@ -103,7 +102,9 @@ function Game()
         }
 
         if (spaceShip.life == 0) {
+            spaceshipProjectile.pause();
             enemyProjectile.pause();
+            enemyDestroyed.pause();
             drawBackground();
             loadScore();
             loadGameOver();
