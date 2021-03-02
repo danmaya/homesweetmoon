@@ -64,6 +64,7 @@ function Game()
     {
         if (!screenLoaded) {
             intro.play();
+            intro.volume = 0.4;
             drawBackground();
             drawTitleLogo();
             loadScreen();
@@ -73,6 +74,7 @@ function Game()
             screenLoaded = true;
             intro.pause();
             music.play();
+            music.volume = 0.2;
         } else if (keyboard[77]) {
             music.pause();
         }
@@ -314,7 +316,7 @@ function Game()
     {
         arrayEnemies = new Array();
 
-        for (var i=0;i<10;i++)
+        /* for (var i=0;i<10;i++)
         {
             var currentEnemy = new Enemy();
             currentEnemy.x = 10 + (i*79);
@@ -347,7 +349,7 @@ function Game()
             var currentEnemy = new Enemy5();
             currentEnemy.x = 10 + (i*79);
             arrayEnemies.push(currentEnemy);
-        }
+        } */
 
         arrayEnemyShots = new Array();
     }
@@ -397,6 +399,7 @@ function Game()
         this.image = new Image();
         this.image.src = "img/spaceshipProjectile.png";
         spaceshipProjectile.play();
+        spaceshipProjectile.volume = 0.4;
     }
 
     function SpaceShipBomb()
@@ -411,6 +414,7 @@ function Game()
         this.image = new Image();
         this.image.src = "img/spaceshipBomb.png";
         spaceshipBomb.play();
+        spaceshipBomb.volume = 0.4;
     }
 
     function EnemyShot(enemy)
@@ -425,6 +429,7 @@ function Game()
         this.image = new Image();
         this.image.src = "img/enemyProjectile.png";
         enemyProjectile.play();
+        enemyProjectile.volume = 0.4;
     }
 
     function FinalBossShot(enemy)
@@ -439,6 +444,7 @@ function Game()
         this.image = new Image();
         this.image.src = "img/finalBossProjectile.png";
         finalBossProjectile.play();
+        finalBossProjectile.volume = 0.2;
     }
 
     function Enemy()
@@ -677,6 +683,7 @@ function Game()
                     arraySpaceShipShots.splice(arraySpaceShipShots.indexOf(currentShot), 1);
                     score += 20;
                     enemyDestroyed.play();
+                    enemyDestroyed.volume = 0.4;
                 }
             }
 
@@ -691,10 +698,12 @@ function Game()
                     if (finalBoss.life == 0) {
                         spaceShip.life = 1000;
                         finalBossDestroyed.play();
+                        finalBossDestroyed.volume = 0.2;
                         score += 1000;
                         music.pause();
                         gameOver.pause();
                         fanfare.play();
+                        fanfare.volume = 0.2;
                     }
                 }
             } 
@@ -716,11 +725,14 @@ function Game()
                     }
 
                     spaceshipHit.play();
+                    spaceshipHit.volume = 0.2;
 
                     if (spaceShip.life == 0) {
                         spaceshipDestroyed.play();
+                        spaceshipDestroyed.volume = 0.2;
                         music.pause();
                         gameOver.play();
+                        gameOver.volume = 0.2;
                     }
                 }
             }
