@@ -316,7 +316,7 @@ function Game()
     {
         arrayEnemies = new Array();
 
-        /* for (var i=0;i<10;i++)
+        for (var i=0;i<10;i++)
         {
             var currentEnemy = new Enemy();
             currentEnemy.x = 10 + (i*79);
@@ -349,7 +349,7 @@ function Game()
             var currentEnemy = new Enemy5();
             currentEnemy.x = 10 + (i*79);
             arrayEnemies.push(currentEnemy);
-        } */
+        }
 
         arrayEnemyShots = new Array();
     }
